@@ -38,6 +38,7 @@ public class shoot : NetworkBehaviour {
 			Vector3 target = new Vector3 (hit.point.x, 1, hit.point.z);
 
 			Vector3 start = new Vector3 (transform.position.x, transform.position.y, transform.position.z);
+            
 
 
 			start = Vector3.MoveTowards(start, target, 1);
@@ -76,6 +77,7 @@ public class shoot : NetworkBehaviour {
 		GameObject effect = Instantiate (projPrefab, start	, Quaternion.LookRotation(target - transform.position));
 
 		Vector3 dir = target - start;
+        dir.Normalize();
 		effect.GetComponent<Rigidbody> ().velocity = dir * projSpeed;
 
 		NetworkServer.Spawn (effect);

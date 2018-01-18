@@ -14,6 +14,7 @@ public class Status : NetworkBehaviour {
 
 	[SyncVar(hook = "OnChangeHealth")]
 	public int health = maxHealth;
+
 	public RectTransform healthBar;
 
 	// Use this for initialization
